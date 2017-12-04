@@ -1,0 +1,36 @@
+﻿.header
+{
+ background-color:red;
+ height:150px;
+}
+.headertwo
+{
+ background-color:green;
+}
+.columnone
+{
+ float:left;
+ width:25%;
+ background-color:blue;
+ height:700px;
+}
+.columntwo
+{
+ float:left;
+ width:50%;
+ background-color:yellow;
+ height:700px;
+}
+.columnthree
+{
+ float:left;
+ width:25%;
+ background-color:PowderBlue;
+ height:700px;
+}
+.row:after
+{
+ content:"";
+ display:table;
+ clear:both;
+}
