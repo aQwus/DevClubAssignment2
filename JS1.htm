@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+body
+{
+ background-image:url("http://moziru.com/images/stripe-clipart-tiger-2.jpg");
+}
+.container
+{
+ width:40%;
+ margin:auto;
+ margin-top:13%;
+ background-color:tomato;
+ overflow:hidden;
+ border: 2px solid black;
+}
+.todos
+{
+ width:100%;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<h1>Your todos</h1>
+<div class="todos">
+<input
+ id="newtodo"
+ style="font-size:20px;width:100%"
+ placeholder="Add a new todo and hit enter"
+ onchange="listing(this)">
+<script>
+function listing(obj){
+ <p style="width:100%; color:black;>obj.value</p>
+</script>
+</div>
+</div>
+</body>
+</html>
