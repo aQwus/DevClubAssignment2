@@ -1,4 +1,4 @@
-﻿body
+body
 {
  background-image:url("https://i.pinimg.com/originals/aa/f6/b4/aaf6b4f868ef0d4815b03e21ed32346c.jpg");
 }
@@ -12,6 +12,7 @@ div.cover
  width:50%;
  margin:auto;
  padding:1px;
+ margin-top:6%;
 }
 div.gallery
 {
@@ -23,8 +24,8 @@ div.gallery
 div.gallery img
 {
  width:100%;
- border-radius:5px;
- height:35px;
+ border-radius:25px;
+ height:145px;
 }
 .row:after
 {
