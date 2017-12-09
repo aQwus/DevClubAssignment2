@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <style>
@@ -17,25 +17,86 @@ body
 }
 .todos
 {
+ position:relative;
+ background-color:linen;
  width:100%;
+}
+#todo
+{
+  font-size:20px;
+  width:100%
+}
+#demo
+{
+  margin-top:0px;
+  list-style-type:none;
+  margin-right:25%;
+}
+#demo1
+{
+  margin-top:0px;
+  list-style-type:none;
+}
+#demo1 li
+{
+ height:22px;
+ font-size:15px;
+}
+#demo li
+{
+ font-size:20px;
+ height:22px;
+}
+.date
+{
+ position:absolute;
+ width:25%;
+ top:0px;
+ right:0px;
 }
 </style>
 </head>
-
 <body>
+
 <div class="container">
-<h1>Your todos</h1>
+<h1>
+Your todos
+</h1>
+
+<input type="text" id="todo" placeholder="Add a new todo and hit enter" onkeydown="store(this)">
 <div class="todos">
-<input
- id="newtodo"
- style="font-size:20px;width:100%"
- placeholder="Add a new todo and hit enter"
- onchange="listing(this)">
+<ul id="demo"></ul>
+<div class="date">
+<ul id="demo1"></ul>
+</div>
+</div>
+</div>
 <script>
-function listing(obj){
- <p style="width:100%; color:black;>obj.value</p>
+var list = document.getElementById('demo');
+var list2 = document.getElementById('demo1');
+
+function store(ele){
+    if(event.keyCode==13){
+    changeText2();
+    }
+}
+
+function changeText2() {
+    var data = document.getElementById('todo').value;
+    if(data!='')
+	{
+	    changeDate();
+        var entry = document.createElement('li');
+        entry.appendChild(document.createTextNode(data));
+        list.appendChild(entry);
+	}
+}
+function changeDate(){
+    var d = new Date();
+    var entry2 = document.createElement('li');
+    entry2.appendChild(document.createTextNode(d.toDateString()));
+    list2.appendChild(entry2);
+    }
 </script>
-</div>
-</div>
 </body>
 </html>
