@@ -14,45 +14,31 @@ body
  background-color:tomato;
  overflow:hidden;
  border: 2px solid black;
-}
-.todos
-{
- position:relative;
- background-color:linen;
- width:100%;
+ word-wrap:break-word;
 }
 #todo
 {
   font-size:20px;
   width:100%
 }
+.todos
+{
+ background-color:linen;
+ width:100%;
+}
 #demo
 {
   margin-top:0px;
   list-style-type:none;
-  margin-right:25%;
-}
-#demo1
-{
-  margin-top:0px;
-  list-style-type:none;
-}
-#demo1 li
-{
- height:22px;
- font-size:15px;
 }
 #demo li
 {
  font-size:20px;
- height:22px;
+ height:auto;
 }
-.date
+.myClass
 {
- position:absolute;
- width:25%;
- top:0px;
- right:0px;
+ float:right;
 }
 </style>
 </head>
@@ -66,37 +52,32 @@ Your todos
 <input type="text" id="todo" placeholder="Add a new todo and hit enter" onkeydown="store(this)">
 <div class="todos">
 <ul id="demo"></ul>
-<div class="date">
-<ul id="demo1"></ul>
-</div>
 </div>
 </div>
 <script>
 var list = document.getElementById('demo');
-var list2 = document.getElementById('demo1');
 
 function store(ele){
     if(event.keyCode==13){
-    changeText2();
+        changeText();
     }
 }
 
-function changeText2() {
+function changeText() {
     var data = document.getElementById('todo').value;
+    var d = new Date();
     if(data!='')
 	{
-	    changeDate();
         var entry = document.createElement('li');
+	var dates = document.createElement("div");
+	dates.appendChild(document.createTextNode(d.toDateString()));
+        dates.className = "myClass";
         entry.appendChild(document.createTextNode(data));
+	entry.appendChild((dates));
         list.appendChild(entry);
 	}
 }
-function changeDate(){
-    var d = new Date();
-    var entry2 = document.createElement('li');
-    entry2.appendChild(document.createTextNode(d.toDateString()));
-    list2.appendChild(entry2);
-    }
 </script>
 </body>
 </html>
+
