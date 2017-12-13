@@ -33,12 +33,13 @@ body
 }
 #demo li
 {
- font-size:20px;
+ font-size:25px;
  height:auto;
 }
 .myClass
 {
  float:right;
+ font-size:20px;
 }
 </style>
 </head>
@@ -49,35 +50,47 @@ body
 Your todos
 </h1>
 
-<input type="text" id="todo" placeholder="Add a new todo and hit enter" onkeydown="store(this)">
+<input type="text" id="todo" placeholder="Add a new todo and hit enter">
 <div class="todos">
 <ul id="demo"></ul>
 </div>
 </div>
+
 <script>
 var list = document.getElementById('demo');
 
-function store(ele){
-    if(event.keyCode==13){
+var enterPressed = function(){
+    document.getElementById("todo").onkeyup = function(event) {
+    if(event.which == 13)
         changeText();
-    }
-}
+  };
+};
 
 function changeText() {
     var data = document.getElementById('todo').value;
-    var d = new Date();
+	var d = new Date();
     if(data!='')
 	{
         var entry = document.createElement('li');
-	var dates = document.createElement("div");
-	dates.appendChild(document.createTextNode(d.toDateString()));
+        entry.description = document.createElement('span');
+        entry.appendChild(entry.description);
+        entry.description.appendChild(document.createTextNode(data));
+        var dates = document.createElement("div");
+        dates.appendChild(document.createTextNode(d.toDateString()));
         dates.className = "myClass";
-        entry.appendChild(document.createTextNode(data));
-	entry.appendChild((dates));
+        entry.appendChild((dates));
+        entry.onclick = () => struck(entry);
         list.appendChild(entry);
 	}
 }
+
+function struck(ele) {
+    ele.description.style = "text-decoration:line-through; list-style-type:none";
+}
+
+enterPressed();
 </script>
 </body>
 </html>
+
 
